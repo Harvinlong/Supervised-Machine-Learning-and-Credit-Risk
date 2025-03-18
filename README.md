@@ -1,50 +1,142 @@
-# Supervised-Machine-Learning-and-Credit-Risk
-## Introduction of this project:
-The project aims to apply machine learning to solve a credit risk problem. Using the credit card credit dataset from LendingClub, the objective is to oversample and undersample data using different algorithms and techniques to train and evaluate models with unbalanced classes. 
+###Introduction
 
-The project will use imbalanced-learn and scikit-learn libraries to build and evaluate models using resampling. 
+This project aims to apply machine learning techniques to solve a credit risk problem using the credit card credit dataset from LendingClub. The primary objective is to handle class imbalance by applying oversampling and undersampling techniques and evaluating different machine learning models for credit risk prediction.
 
-The models that will be used to predict credit risk include BalancedRandomForestClassifier and EasyEnsembleClassifier, and the project will evaluate the performance of these models and make a written recommendation on whether they should be used to predict credit risk.
+To achieve this, we utilize the imbalanced-learn and sci-kit-learn libraries to build and evaluate models using resampling techniques. The key models used in this analysis include BalancedRandomForestClassifier and EasyEnsembleClassifier. The project also provides a written recommendation on the most effective model for predicting credit risk.
 
-## Steps:
+#Methodology
 
-1. First of all, I evaluated three machine learning models using resampling techniques to determine which is better at predicting credit risk. 
+##Steps:
 
-2. I first used oversampling techniques such as RandomOverSampler and SMOTE, and then use undersampling techniques like ClusterCentroids algorithm. 
+Initial Model Evaluation: Evaluated three machine learning models using resampling techniques to determine which performs best in predicting credit risk.
 
-3. Then I trained a logistic regression classifier to calculate the balanced accuracy score, and generate a confusion matrix, and classification report. 
+Oversampling Techniques: Applied methods such as RandomOverSampler and SMOTE to balance the dataset.
 
-4. Next,  I used the SMOTEENN algorithm to determine if the combinatorial approach of over- and undersampling is better than the resampling algorithms that I used previously. 
+Undersampling Technique: Used ClusterCentroids to reduce the majority class size.
 
-5. After that, I trained and compared two different ensemble classifiers, BalancedRandomForestClassifier and EasyEnsembleClassifier, to predict credit risk and evaluate each model using resampling techniques. 
+Logistic Regression Classifier: Trained a logistic regression model to compute the balanced accuracy score, generate a confusion matrix, and evaluate classification performance.
 
-6. Finally, I calculated the balanced accuracy score, generate a confusion matrix, and classification report to evaluate the performance of each model.
+SMOTEENN Resampling: Implemented a combinatorial approach of over- and undersampling using SMOTEENN to assess its effectiveness compared to previous resampling techniques.
 
+Ensemble Models: Trained and compared two ensemble classifiers (BalancedRandomForestClassifier and EasyEnsembleClassifier) using resampling techniques.
 
-## Overview of the analysis：
-X is the independent variable in the data, and y is the dependent variable. The first model is obtained by training the data through the x-train and y-train. Then X-test was used to test the model for the first time. Finally, y-test and y-pred were used to fit the data into the final model and compare it with the original data. In the process, I set loan-status as the target and sum all the data that can be defined as High risk into a high-risk.
+Final Evaluation: Calculated the balanced accuracy score, generated confusion matrices, and created classification reports to assess model performance.
 
-## Results: 
--Balanced Random Forest Classifier：
- A type of random forest classifier that uses balanced subsampling to create multiple decision trees, which are then combined to make a final prediction. The subsampling helps to balance the class distribution and reduce the impact of imbalanced data. The most important feature is "next payment", which has a  0.021538 importance.
+#Overview of the Analysis
 
--Easy Ensemble AdaBoost Classifier：
-An ensemble method that uses AdaBoost algorithm to create multiple classifiers, and then combines them to make a final prediction. The method uses different subsamples of the original data to create diverse classifiers, which can improve the performance on imbalanced data. the balance accuracy score is 0.8028.
+X (Independent Variable): Features used to train the models.
 
--Naive Random Oversampling：
-A method for handling imbalanced data by randomly duplicating minority class examples to balance the class distribution. This oversampling approach is simple but can lead to overfitting. The accuracy balanced score is 0.7943 in this sampling model.
+y (Dependent Variable): The target variable, where loan status is categorized as either low-risk or high-risk.
 
+Training Process: The data was split into x-train and y-train to train the models, then tested using X-test. Finally, y-test and y-pred were used to fit the final models and compare predictions with actual results.
 
--SMOTE Oversampling：
-Synthetic Minority Over-sampling Technique (SMOTE) is an oversampling method that creates synthetic examples of the minority class by interpolating between existing examples. This method aims to balance the class distribution and reduce the impact of imbalanced data while avoiding overfitting. the accuracy score improved is 0.78608, but it took longer time in the process.
+Target Definition: Loan-status was set as the target, and all data classified as high risk were grouped together.
 
+#Results
 
--Undersampling：
-A method for handling imbalanced data by removing examples from the majority class to balance the class distribution. This approach can lead to loss of important information. This model shows the lowest balance score 0.66832.
+Resampling Models for Credit Risk Prediction
 
+Naive Random Oversampling
 
--Combination (Over and Under) Sampling：
-A method that combines oversampling and undersampling techniques to balance the class distribution by creating synthetic examples of the minority class and removing examples from the majority class. This approach aims to balance the class distribution while reducing the impact of imbalanced data and avoiding overfitting.It took the longest time to process, which performed the most accurate data: 
+Balanced Accuracy Score: 79.43%
 
+High Risk Precision: 1%
 
-Summary: Each one of the model has it's strength and weakness,accuracy is not always the best metric to evaluate a model's performance. Other metrics such as precision, recall, F1-score, AUC-ROC and etc. should be considered as well. However based on the result that I got from this module, combination sampling provided the most accurate result.
+High Risk Recall: 75%
+
+F1 Score: 2%
+
+Downside: Can lead to overfitting.
+
+SMOTE (Synthetic Minority Oversampling Technique)
+
+Balanced Accuracy Score: 78.61%
+
+High Risk Precision: 1%
+
+High Risk Recall: 63%
+
+F1 Score: 2%
+
+Downside: Takes longer to process compared to random oversampling.
+
+Cluster Centroids (Undersampling)
+
+Balanced Accuracy Score: 66.83%
+
+High Risk Precision: 1%
+
+High Risk Recall: 69%
+
+F1 Score: 1%
+
+Downside: May remove important data, leading to a loss of information.
+
+SMOTEENN (Combination of Oversampling & Undersampling)
+
+Balanced Accuracy Score: 64.49%
+
+High Risk Precision: 1%
+
+High Risk Recall: 72%
+
+F1 Score: 2%
+
+Downside: The longest processing time but yielded the most accurate results among resampling models.
+
+Ensemble Classifiers for Credit Risk Prediction
+
+Balanced Random Forest Classifier
+
+Balanced Accuracy Score: 78.85%
+
+High Risk Precision: 3%
+
+High Risk Recall: 70%
+
+F1 Score: 6%
+
+Most Important Feature: "Next Payment" with an importance score of 0.021538.
+
+Easy Ensemble AdaBoost Classifier
+
+Balanced Accuracy Score: 92.01%
+
+High Risk Precision: 9%
+
+High Risk Recall: 89%
+
+F1 Score: 17%
+
+Downside: Longer processing time but highest accuracy.
+
+Conclusion
+
+Among all models evaluated, the Easy Ensemble Classifier demonstrated the best performance with:
+
+92.01% balanced accuracy
+
+9% precision for high-risk loans
+
+89% recall for high-risk loans
+
+Highest F1 Score (17%)
+
+This suggests that the Easy Ensemble Classifier is the most effective model for credit risk prediction in this dataset, significantly outperforming other resampling techniques and classification models.
+
+Model Performance Ranking (Descending Order for High-Risk Prediction):
+
+Easy Ensemble Classifier - 92.01% accuracy, 9% precision, 89% recall, 17% F1 Score
+
+Balanced Random Forest Classifier - 78.85% accuracy, 3% precision, 70% recall, 6% F1 Score
+
+SMOTE Oversampling - 78.61% accuracy, 1% precision, 63% recall, 2% F1 Score
+
+Naive Random Oversampling - 79.43% accuracy, 1% precision, 75% recall, 2% F1 Score
+
+SMOTEENN - 64.49% accuracy, 1% precision, 72% recall, 2% F1 Score
+
+Cluster Centroids - 66.83% accuracy, 1% precision, 69% recall, 1% F1 Score
+
+This analysis highlights the importance of handling imbalanced datasets and demonstrates that ensemble models, particularly the Easy Ensemble Classifier, can significantly improve credit risk predictions.
+
