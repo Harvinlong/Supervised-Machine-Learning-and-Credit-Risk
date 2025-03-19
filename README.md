@@ -1,12 +1,12 @@
-###Introduction
+# Introduction
 
 This project aims to apply machine learning techniques to solve a credit risk problem using the credit card credit dataset from LendingClub. The primary objective is to handle class imbalance by applying oversampling and undersampling techniques and evaluating different machine learning models for credit risk prediction.
 
 To achieve this, we utilize the imbalanced-learn and sci-kit-learn libraries to build and evaluate models using resampling techniques. The key models used in this analysis include BalancedRandomForestClassifier and EasyEnsembleClassifier. The project also provides a written recommendation on the most effective model for predicting credit risk.
 
-#Methodology
+# Methodology
 
-##Steps:
+## Steps:
 
 Initial Model Evaluation: Evaluated three machine learning models using resampling techniques to determine which performs best in predicting credit risk.
 
@@ -22,7 +22,7 @@ Ensemble Models: Trained and compared two ensemble classifiers (BalancedRandomFo
 
 Final Evaluation: Calculated the balanced accuracy score, generated confusion matrices, and created classification reports to assess model performance.
 
-#Overview of the Analysis
+# Overview of the Analysis
 
 X (Independent Variable): Features used to train the models.
 
@@ -32,9 +32,9 @@ Training Process: The data was split into x-train and y-train to train the model
 
 Target Definition: Loan-status was set as the target, and all data classified as high risk were grouped together.
 
-#Results
+# Results
 
-Resampling Models for Credit Risk Prediction
+### Resampling Models for Credit Risk Prediction
 
 Naive Random Oversampling
 
@@ -48,7 +48,7 @@ F1 Score: 2%
 
 Downside: Can lead to overfitting.
 
-SMOTE (Synthetic Minority Oversampling Technique)
+### SMOTE (Synthetic Minority Oversampling Technique)
 
 Balanced Accuracy Score: 78.61%
 
@@ -60,7 +60,7 @@ F1 Score: 2%
 
 Downside: Takes longer to process compared to random oversampling.
 
-Cluster Centroids (Undersampling)
+### Cluster Centroids (Undersampling)
 
 Balanced Accuracy Score: 66.83%
 
@@ -72,7 +72,7 @@ F1 Score: 1%
 
 Downside: May remove important data, leading to a loss of information.
 
-SMOTEENN (Combination of Oversampling & Undersampling)
+### SMOTEENN (Combination of Oversampling & Undersampling)
 
 Balanced Accuracy Score: 64.49%
 
@@ -84,7 +84,7 @@ F1 Score: 2%
 
 Downside: The longest processing time but yielded the most accurate results among resampling models.
 
-Ensemble Classifiers for Credit Risk Prediction
+### Ensemble Classifiers for Credit Risk Prediction
 
 Balanced Random Forest Classifier
 
@@ -98,7 +98,7 @@ F1 Score: 6%
 
 Most Important Feature: "Next Payment" with an importance score of 0.021538.
 
-Easy Ensemble AdaBoost Classifier
+### Easy Ensemble AdaBoost Classifier
 
 Balanced Accuracy Score: 92.01%
 
@@ -110,9 +110,9 @@ F1 Score: 17%
 
 Downside: Longer processing time but highest accuracy.
 
-Conclusion
+# Conclusion
 
-Among all models evaluated, the Easy Ensemble Classifier demonstrated the best performance with:
+### Among all models evaluated, the Easy Ensemble Classifier demonstrated the best performance with:
 
 92.01% balanced accuracy
 
@@ -122,7 +122,7 @@ Among all models evaluated, the Easy Ensemble Classifier demonstrated the best p
 
 Highest F1 Score (17%)
 
-This suggests that the Easy Ensemble Classifier is the most effective model for credit risk prediction in this dataset, significantly outperforming other resampling techniques and classification models.
+### This suggests that the Easy Ensemble Classifier is the most effective model for credit risk prediction in this dataset, significantly outperforming other resampling techniques and classification models.
 
 Model Performance Ranking (Descending Order for High-Risk Prediction):
 
@@ -138,5 +138,5 @@ SMOTEENN - 64.49% accuracy, 1% precision, 72% recall, 2% F1 Score
 
 Cluster Centroids - 66.83% accuracy, 1% precision, 69% recall, 1% F1 Score
 
-This analysis highlights the importance of handling imbalanced datasets and demonstrates that ensemble models, particularly the Easy Ensemble Classifier, can significantly improve credit risk predictions.
+### This analysis highlights the importance of handling imbalanced datasets and demonstrates that ensemble models, particularly the Easy Ensemble Classifier, can significantly improve credit risk predictions.
 
